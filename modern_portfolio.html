@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerroju Bhavana | Portfolio</title>
+    
+    <!-- Tab Icon (SVG Data URI using initials YB) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%230d9488%22/><text x=%2250%25%22 y=%2265%25%22 font-size=%2255%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>YB</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons for clean aesthetic -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration for custom theme parameters -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d9488;
+        }
+        
+        /* Smooth transitions */
+        .nav-link.active {
+            color: #0d9488;
+            border-color: #0d9488;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        
+        <!-- Sticky Sidebar Nav (Left Panel on Desktop, Top Nav on Mobile) -->
+        <aside class="lg:w-80 lg:h-screen lg:sticky lg:top-0 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between p-6 lg:p-8 z-30 shrink-0">
+            <div>
+                <!-- Brand / Initials Logo -->
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="h-10 w-10 rounded-xl bg-brand-600 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md shadow-brand-500/20">
+                        YB
+                    </div>
+                    <div>
+                        <h1 class="font-heading font-bold text-lg leading-none text-slate-900">Y. Bhavana</h1>
+                        <p class="text-xs text-slate-500 mt-1">CSE (Data Science) Student</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links (Scrollspy Active) -->
+                <nav class="hidden lg:flex flex-col space-y-2 mt-8">
+                    <a href="#about" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="user" class="w-4 h-4"></i> About
+                    </a>
+                    <a href="#experience" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i> Experience
+                    </a>
+                    <a href="#projects" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="folder-git-2" class="w-4 h-4"></i> Projects
+                    </a>
+                    <a href="#skills" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="cpu" class="w-4 h-4"></i> Skills & Expertise
+                    </a>
+                    <a href="#education" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="graduation-cap" class="w-4 h-4"></i> Education
+                    </a>
+                    <a href="#certifications" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="award" class="w-4 h-4"></i> Certifications
+                    </a>
+                    <a href="#contact" class="nav-link px-4 py-2.5 rounded-lg border-l-2 border-transparent text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-all duration-200 flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4"></i> Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Navigation Button & Drawer overlay -->
+                <div class="lg:hidden flex justify-between items-center w-full">
+                    <button id="mobile-menu-btn" class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg focus:outline-none" aria-label="Toggle Menu">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    </button>
+                    <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">ID: 23R11A67E4</span>
+                </div>
+            </div>
+
+            <div id="mobile-drawer" class="hidden lg:hidden flex-col gap-2 mt-4 pb-4 border-t pt-4 border-slate-100">
+                <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="user" class="w-4 h-4"></i> About</a>
+                <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="briefcase" class="w-4 h-4"></i> Experience</a>
+                <a href="#projects" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="folder-git-2" class="w-4 h-4"></i> Projects</a>
+                <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="cpu" class="w-4 h-4"></i> Skills</a>
+                <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</a>
+                <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="award" class="w-4 h-4"></i> Certifications</a>
+                <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center gap-2 text-sm"><i data-lucide="mail" class="w-4 h-4"></i> Contact</a>
+            </div>
+
+            <!-- Footer segment in Sidebar -->
+            <div class="hidden lg:block">
+                <div class="text-xs text-slate-400">
+                    <p class="font-medium text-slate-500">Student ID: 23R11A67E4</p>
+                    <p class="mt-1">&copy; 2026 Yerroju Bhavana.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 max-w-5xl mx-auto px-6 py-12 lg:py-20 lg:px-16 space-y-24">
+
+            <section id="about" class="scroll-mt-24">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-50 text-brand-700 rounded-full text-xs font-semibold tracking-wide uppercase mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span> Available for Opportunities
+                    </div>
+                    
+                    <h2 class="text-slate-900 font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">Yerroju Bhavana</span>
+                    </h2>
+                    <p class="mt-4 text-xl sm:text-2xl font-heading text-slate-600 font-medium">
+                        Specializing in Computer Science & Engineering (Data Science)
+                    </p>
+                    
+                    <p class="mt-6 text-slate-600 text-lg leading-relaxed max-w-2xl">
+                        I am a highly motivated computer science student with a strong baseline in artificial intelligence and database architecture. My objective is to build practical developer experiences, contribute meaningfully to organizational milestones, and sustain a rigorous curve of continuous learning.
+                    </p>
+
+                    <!-- Key highlights blocks -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <div class="p-2 bg-brand-50 text-brand-600 rounded-lg">
+                                <i data-lucide="brain" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 text-sm">Focus Area</h4>
+                                <p class="text-xs text-slate-500">Agentic AI, Machine Learning, & Predictive Modeling</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <div class="p-2 bg-brand-50 text-brand-600 rounded-lg">
+                                <i data-lucide="code" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 text-sm">Tech Preferences</h4>
+                                <p class="text-xs text-slate-500">Java, Python, Advanced SQL, and DSA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connect action calls -->
+                    <div class="flex flex-wrap gap-4 mt-10">
+                        <a href="#contact" class="px-6 py-3 bg-brand-600 text-white rounded-xl font-medium hover:bg-brand-700 transition duration-200 flex items-center gap-2 shadow-lg shadow-brand-600/15 text-sm">
+                            Let's Connect <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bhavana-yerroju-727516348" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-slate-200 text-slate-700 rounded-xl font-medium hover:bg-slate-50 transition duration-200 flex items-center gap-2 text-sm bg-white">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-brand-600"></i> LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="briefcase" class="text-brand-600 w-6 h-6"></i> Professional Experience
+                    </h3>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-brand-100 space-y-8">
+                    <!-- Cantilever Internship -->
+                    <div class="relative">
+                        <!-- Left timeline indicator dot -->
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-4 border-white bg-brand-600 shadow"></span>
+                        
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Learning AIML Intern</h4>
+                                <p class="text-brand-700 font-medium text-sm">Cantilever — India</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold self-start sm:self-center">
+                                Academic Period
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm mt-3 list-disc list-inside">
+                            <li>Acquired advanced foundations in Python programming alongside structural machine learning practices.</li>
+                            <li>Applied algorithmic pipelines, pre-processing, and evaluation strategies to real-world datasets.</li>
+                            <li>Completed hands-on practical model implementation and validated prediction cycles.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="folder-git-2" class="text-brand-600 w-6 h-6"></i> Key Projects
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Project 1 -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="h-10 w-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="store" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 font-heading mb-2">Smart Direct Marketplace</h4>
+                            <p class="text-xs text-brand-600 font-semibold uppercase tracking-wider mb-3">Agentic AI & Full-Stack Development</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Developed a marketplace platform bridging the gap between farmers/local sellers and consumer crowds. Integrated stateful AI features for tailored recommendations, streamlined content curation, and customer guidance.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-50 flex flex-wrap items-center justify-between gap-4">
+                            <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md font-medium">Agentic AI, Full-Stack</span>
+                            <div class="flex space-x-2">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-slate-800 transition" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="h-10 w-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 font-heading mb-2">Fake Profile Detection</h4>
+                            <p class="text-xs text-brand-600 font-semibold uppercase tracking-wider mb-3">Social Media Safety & ML</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Engineered analytical paradigms to expose malicious or duplicate digital accounts. Essential research targeting improved security frameworks and platform reliability on active community networks.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-50 flex flex-wrap items-center justify-between gap-4">
+                            <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md font-medium">Python, Machine Learning</span>
+                            <div class="flex space-x-2">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-slate-800 transition" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-100 transition-all duration-300 flex flex-col justify-between md:col-span-2">
+                        <div>
+                            <div class="h-10 w-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="trending-up" class="w-5 h-5"></i>
+                            </div>
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 mb-2">
+                                <h4 class="text-lg font-bold text-slate-900 font-heading">Smart Metro Passenger Flow Prediction</h4>
+                                <span class="text-xs px-2.5 py-1 bg-brand-50 text-brand-700 rounded-full font-semibold uppercase tracking-wider">Advanced Network Architecture</span>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed max-w-3xl">
+                                Built an Adaptive Fusion Network targeting urban intelligence parameters. Systematically tracks origin-destination routes across designated metro networks to yield extremely accurate dynamic traffic projections.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-50 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md font-medium">Adaptive Fusion Net</span>
+                                <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md font-medium">Data Visualization</span>
+                                <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md font-medium">Python</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-slate-800 transition" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="skills" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="cpu" class="text-brand-600 w-6 h-6"></i> Skills & Expertise
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Core Algorithmic & Computer Science -->
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Data Structures & Algorithms</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Arrays & Linked lists</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Trees & Graphs</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Hashing & Heaps</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">OOP Concepts</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Database Systems</span>
+                        </div>
+                    </div>
+
+                    <!-- Languages & Frameworks -->
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Programming & Frameworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Java</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">C</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">SQL</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">R Studio</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">Machine Learning</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">HTML & CSS</span>
+                            <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-brand-500 transition duration-150">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Coursework overview -->
+                    <div class="md:col-span-2 bg-brand-50/50 rounded-2xl p-6 border border-brand-100">
+                        <h4 class="text-sm font-bold text-brand-900 mb-3 uppercase tracking-wider">Core Academic Coursework</h4>
+                        <p class="text-sm text-brand-800 leading-relaxed">
+                            Structured studies including: **Object-Oriented Programming (OOP)**, **Data Structures & Algorithms (DSA)**, **Database Management Systems (DBMS)**, **Software Engineering**, and **Machine Learning**.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="text-brand-600 w-6 h-6"></i> Education
+                    </h3>
+                </div>
+
+                <div class="space-y-6">
+                    
+                    <!-- B.Tech Card -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 bg-brand-50 text-brand-700 rounded-full text-xs font-semibold uppercase tracking-wider">B.Tech — CSE (Data Science)</span>
+                                <h4 class="text-lg font-bold text-slate-900 font-heading mt-2">Geethanjali College of Engineering and Technology</h4>
+                                <p class="text-slate-500 text-sm mt-1">Autonomous, Affiliated to JNTUH</p>
+                            </div>
+                            <div class="sm:text-right">
+                                <span class="text-brand-600 font-semibold text-sm">CGPA: 8.2 / 10.0</span>
+                                <p class="text-xs text-slate-400 mt-1">2023 - 2027 (Expected)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intermediate Card -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-semibold uppercase tracking-wider">Board Of Intermediate Education</span>
+                                <h4 class="text-lg font-bold text-slate-900 font-heading mt-2">Sri Chaitanya Junior Kalasala</h4>
+                                <p class="text-slate-500 text-sm mt-1">MPC stream</p>
+                            </div>
+                            <div class="sm:text-right">
+                                <span class="text-slate-600 font-semibold text-sm">Percentage: 96%</span>
+                                <p class="text-xs text-slate-400 mt-1">2021 - 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- School Card -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-semibold uppercase tracking-wider">Secondary School Certificate</span>
+                                <h4 class="text-lg font-bold text-slate-900 font-heading mt-2">St. Venus High School</h4>
+                                <p class="text-slate-500 text-sm mt-1">High School Studies</p>
+                            </div>
+                            <div class="sm:text-right">
+                                <span class="text-slate-600 font-semibold text-sm">Percentage: 100%</span>
+                                <p class="text-xs text-slate-400 mt-1">2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="certifications" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="award" class="text-brand-600 w-6 h-6"></i> Professional Certifications
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Database Programming with SQL</h4>
+                            <p class="text-xs text-slate-500">Oracle Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="coffee" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Java Fundamentals</h4>
+                            <p class="text-xs text-slate-500">Oracle Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="globe-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Certified Hashgraph Developer</h4>
+                            <p class="text-xs text-slate-500">Hedera Certification</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="line-chart" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Data Analytics & Visualization Job Simulation</h4>
+                            <p class="text-xs text-slate-500">Accenture (Forage)</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="terminal" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Python Essentials</h4>
+                            <p class="text-xs text-slate-500">Cisco Networking Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="network" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Introduction to Networks & Network Essentials</h4>
+                            <p class="text-xs text-slate-500">Cisco Networking Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white border border-slate-100 rounded-xl flex items-start gap-3 md:col-span-2">
+                        <div class="p-2 bg-brand-50 text-brand-600 rounded-lg shrink-0">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Digital Application Fundamentals (STEM)</h4>
+                            <p class="text-xs text-slate-500">FutureSkills Prime (NASSCOM)</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="contact" class="scroll-mt-24">
+                <div class="border-b border-slate-200 pb-5 mb-8">
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="mail" class="text-brand-600 w-6 h-6"></i> Contact & Profiles
+                    </h3>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 lg:p-10 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-heading font-bold text-slate-900 mb-4">Let's coordinate on a goal</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                I am highly receptive to project sponsorships, collaborative research, coding hackathons, or entry-level opportunities. Drop an email, or connect via standard social coordinates!
+                            </p>
+                            
+                            <!-- Hobbies Tagging -->
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">#CodingProblems</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">#Dancing</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">#Music</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Direct Email -->
+                            <a href="mailto:23r11a67e4@gcet.edu.in" class="flex items-center gap-4 p-4 border border-slate-100 rounded-2xl hover:border-brand-500 transition-colors group">
+                                <div class="p-3 bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white rounded-xl transition">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold block uppercase">Email Address</span>
+                                    <span class="text-sm font-medium text-slate-800">23r11a67e4@gcet.edu.in</span>
+                                </div>
+                            </a>
+
+                            <!-- Contact Phone -->
+                            <a href="tel:+919182024669" class="flex items-center gap-4 p-4 border border-slate-100 rounded-2xl hover:border-brand-500 transition-colors group">
+                                <div class="p-3 bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white rounded-xl transition">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold block uppercase">Call or WhatsApp</span>
+                                    <span class="text-sm font-medium text-slate-800">+91 9182024669</span>
+                                </div>
+                            </a>
+
+                            <!-- Profiles Panel -->
+                            <div class="flex gap-3 pt-2">
+                                <a href="https://www.linkedin.com/in/bhavana-yerroju-727516348" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 border border-slate-200 hover:border-brand-500 rounded-xl text-slate-700 font-medium text-sm text-center transition flex items-center justify-center gap-2">
+                                    <i data-lucide="linkedin" class="w-4 h-4 text-brand-600"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 border border-slate-200 hover:border-brand-500 rounded-xl text-slate-700 font-medium text-sm text-center transition flex items-center justify-center gap-2">
+                                    <i data-lucide="github" class="w-4 h-4 text-slate-800"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Responsive Hamburger Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileDrawer.classList.contains('hidden');
+            if (isHidden) {
+                mobileDrawer.classList.remove('hidden');
+                mobileDrawer.classList.add('flex');
+            } else {
+                mobileDrawer.classList.add('hidden');
+                mobileDrawer.classList.remove('flex');
+            }
+        });
+
+        // Close drawer on clicking menu links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+                mobileDrawer.classList.remove('flex');
+            });
+        });
+
+        // Scrollspy Functionality (Desktop Sidebar Link Highlighting)
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 150)) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
